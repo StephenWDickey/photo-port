@@ -1,23 +1,30 @@
+// we import React
+import React from 'react';
 
+// we import any CSS or images we
+// want to use
 import './App.css';
 
+
+// we must import our component 
+import About from './components/About';
+
+
+// we have a function called App
+// remember React components use 
+// PascalCasing
 function App() {
+  // everything between return() is JSX
+  // return() is basically like saying
+  // document.createElement(JSX)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // all this stuff that looks like HTML
+    // is called JSX
+    <div>
+      <main>
+        {/* Here we invoke the About component */}
+        <About />
+      </main>
     </div>
   );
 }
