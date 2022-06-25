@@ -28,14 +28,18 @@ function Nav() {
   return (
     <header>
       <h2>
-        <a href="/">
+        {/* use of data-testid attributes to identify elements,
+        we want separation of concerns */}
+        <a data-testid="link" href="/">
           <span role="img" aria-label="camera"> 📸</span> Oh Snap!
         </a>
       </h2>
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a href="#about">
+            {/* use of data-testid attributes to identify elements,
+            we want separation of concerns */}
+            <a data-testid="about" href="#about">
             About me
             </a>
           </li>
