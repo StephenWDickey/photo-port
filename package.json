@@ -4,8 +4,6 @@
   "private": true,
   "homepage": "https://StephenWDickey.github.io/photo-port",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "0.0.0-experimental-955cad9bc-20220623",
     "react-dom": "0.0.0-experimental-955cad9bc-20220623",
@@ -37,5 +35,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^11.2.7"
   }
 }
