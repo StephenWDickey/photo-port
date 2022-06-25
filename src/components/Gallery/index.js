@@ -5,27 +5,23 @@ import React from 'react'
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
-// import photo/image to display in gallery
-import photo from "../../assets/small/commercial/0.jpg";
+import PhotoList from '../PhotoList';
 
-
+// destructure props to obtain currentCategory state data
 function Gallery(props) {
 
     // create an object to store name and description values
-    const currentCategory = {
-        name: "commercial",
-        description: "Photos of grocery stores, food trucks, and other commercial projects",
-    };
+    // we are destructuring the props argument to
+    // obtain currentCategory state info
+    const { currentCategory } = props;
 
     return (
         <section>
-            <h1>{capitalizeFirstLetter(currentCategory.name)}</h1>
-            <p>{currentCategory.name}</p> 
-            <div className="flex-row">
-                {/* img element must have alt value or React,
-                will fire off an error for poor accessibility */}
-                <img src={photo} alt="Commercial Example" className="img-thumbnail mx-1" />
-            </div>       
+            {/* incorporate data-testid attribute */}
+            <h1 data-testid="h1tag">{capitalizeFirstLetter(currentCategory.name)}</h1>
+            <p>{currentCategory.description}</p>
+             {/* pass through the prop info as argument */}
+            <PhotoList category={currentCategory.name}/>      
         </section>
     );
 }

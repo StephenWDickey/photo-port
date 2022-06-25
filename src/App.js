@@ -27,7 +27,7 @@ function App() {
     },
     { name: 'portraits', description: 'Portraits of people in my life' },
     { name: 'food', description: 'Delicious delicacies' },
-    { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
+    { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' }
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
@@ -39,15 +39,15 @@ function App() {
     // all this stuff that looks like HTML
     // is called JSX
     <div>
-      {/* now we pass our 'props' into JSX components */}
+      
       <Nav
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
       />
       <main>
-        <Gallery />
-        {/* Here we invoke the About component */}
+        <Gallery currentCategory={currentCategory}/>
+        
         <About />
       </main>
     </div>
