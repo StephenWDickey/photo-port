@@ -8,7 +8,7 @@ import './App.css';
 
 // we must import our component 
 import About from './components/About';
-
+import Nav from './components/Nav';
 
 // we have a function called App
 // remember React components use 
@@ -21,6 +21,7 @@ function App() {
     // all this stuff that looks like HTML
     // is called JSX
     <div>
+      <Nav/>
       <main>
         {/* Here we invoke the About component */}
         <About />
