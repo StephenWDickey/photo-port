@@ -10,11 +10,17 @@ import './App.css';
 import About from './components/About';
 import Nav from './components/Nav';
 import Gallery from './components/Gallery';
+import ContactForm from './components/Contact';
+
 
 // we have a function called App
 // remember React components use 
 // PascalCasing
 function App() {
+
+
+  // create Hook for selection of Contact form
+  const [ contactSelected, setContactSelected ] = useState(false);
 
 
   // defining our state/categories in App.js
@@ -44,11 +50,22 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       />
       <main>
-        <Gallery currentCategory={currentCategory}/>
-        
-        <About />
+        {/* basically says if contact selected is false */}
+        {/* then we will render Gallery and About */}
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory} />
+            <About />
+          </>
+        // this says else, we will render ContactForm
+        // ? and : are ternary operators like &&
+        ) : (
+          <ContactForm />
+        )}
       </main>
     </div>
   );

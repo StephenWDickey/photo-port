@@ -94,6 +94,8 @@ function Nav(props) {
     categories = [],
     setCurrentCategory,
     currentCategory,
+    contactSelected,
+    setContactSelected
   } = props;
 
   // invoke useEffect hook to change title
@@ -119,19 +121,23 @@ function Nav(props) {
             <li className="mx-2">
               <a data-testid="about"
                 href="#about"
+                onClick={() => setContactSelected(false)}
               >
                 About me
               </a>
             </li>
-            <li>
-              <span>Contact</span>
+            <li className={`mx-2 ${contactSelected && 'navActive'}`}>
+              <span onClick={() => {
+                setContactSelected(true);
+                setCurrentCategory(category);
+              }}>Contact</span>
             </li>
             {categories.map((category) => (
               // notice how we insert variables within
               // the curly bracket javascript
               <li className={`mx-1 ${
                   // the name of the current state
-                  currentCategory.name === category.name && 'navActive'
+                  currentCategory.name === category.name && !contactSelected && 'navActive'
                   }`} key={category.name}>
                 <span
                   // our setter hook function gets triggered
