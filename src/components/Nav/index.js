@@ -127,10 +127,9 @@ function Nav(props) {
               </a>
             </li>
             <li className={`mx-2 ${contactSelected && 'navActive'}`}>
-              <span onClick={() => {
-                setContactSelected(true);
-                setCurrentCategory(category);
-              }}>Contact</span>
+              <span onClick={() => 
+                setContactSelected(true)
+              }>Contact</span>
             </li>
             {categories.map((category) => (
               // notice how we insert variables within
@@ -143,7 +142,8 @@ function Nav(props) {
                   // our setter hook function gets triggered
                   // notice it accepts an argument of state
                   onClick={() => {
-                    setCurrentCategory(category)
+                    setCurrentCategory(category);
+                    setContactSelected(false);
                   }}
                 >
                   {/* helper function reformats how to name is printed */}
