@@ -5,6 +5,9 @@
 import React, { useState } from 'react';
 
 
+import Modal from '../Modal';
+
+
 const PhotoList = ({ category }) => {
 
   // we will create an array of photo data
@@ -112,8 +115,30 @@ const PhotoList = ({ category }) => {
   // whose category matches the category chosen by user
   const currentPhotos = photos.filter(photo => photo.category === category);
 
+
+  const [currentPhoto, setCurrentPhoto] = useState();
+
+  // we set initial state to false, so that 
+  // the Modal component will render if it's true
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  const toggleModal = (image, i) => {
+    // use setter function to assign index value
+    // to photo, now we can pass as prop to Modal component
+    setCurrentPhoto({...image, index: i});
+
+    setIsModalOpen(!isModalOpen);
+  }
+
+
   return (
     <div>
+
+      { isModalOpen && (
+        <Modal currentPhoto={currentPhoto} onClose={toggleModal} /> 
+      )}
+
       <div className="flex-row">
       
         {currentPhotos.map((image, i) => (
@@ -122,6 +147,7 @@ const PhotoList = ({ category }) => {
             src = {require(`../../assets/small/${category}/${i}.jpg`).default}
             alt={image.name} 
             className="img-thumbnail mx-1" 
+            onClick={() => toggleModal(image, i)}
             key={image.name} 
           />
         ))}   
